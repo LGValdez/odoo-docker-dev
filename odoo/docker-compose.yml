@@ -1,0 +1,42 @@
+version: "3"
+services:
+
+  odoo_server_18:
+    container_name: odoo_server_18
+    ports:
+      - 18069:8069
+    tty: true
+    stdin_open: true
+    entrypoint:
+     - zsh
+    image: gvodoo:18.04
+
+  odoo_server_20:
+    container_name: odoo_server_20
+    ports:
+      - 20069:8069
+    tty: true
+    stdin_open: true
+    entrypoint:
+     - zsh
+    image: gvodoo:20.04
+
+  odoo_server_24:
+    container_name: odoo_server_24
+    ports:
+      - 24069:8069
+    tty: true
+    stdin_open: true
+    entrypoint:
+     - zsh
+    image: gvodoo:24.04
+
+  odoo_db:
+    container_name: odoo_db
+    ports:
+      - 9432:5432
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=dev_odoo
+      - POSTGRES_USER=dev_odoo
